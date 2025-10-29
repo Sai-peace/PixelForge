@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fan Art Gallery | PixelForge</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Teko:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Teko", sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+        color: #222;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        background: #fcfcfc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        margin-left: 20px;
+        color: #444;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #0b5999;
+      }
+
+      .hero {
+        background: url("fanart1.jpg") center/cover no-repeat;
+        position: relative;
+        color: #fff;
+        text-align: center;
+        padding: 120px 20px;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      .hero h2 {
+        font-family: "Teko", sans-serif;
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 70px 10%;
+      }
+
+      .light {
+        background-color: #f5f5f5;
+      }
+
+      h3.section-title {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .art-card {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .art-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .art-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .art-card .content {
+        padding: 20px;
+      }
+
+      .art-card h4 {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .art-card p {
+        color: #555;
+        font-size: 0.95rem;
+      }
+
+      .submit-section {
+        text-align: center;
+        padding: 80px 10%;
+        background-color: #f5f5f5;
+      }
+
+      .submit-section h3 {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+        margin-bottom: 15px;
+      }
+
+      .submit-section p {
+        max-width: 600px;
+        margin: 0 auto 25px;
+        color: #444;
+      }
+
+      .submit-btn {
+        display: inline-block;
+        background-color: #0b5999;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 28px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      .submit-btn:hover {
+        background-color: #009bd4;
+      }
+
+      .footer {
+        background: #ffffff;
+        padding: 25px 0;
+        margin-top: 40px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-brand {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        font-size: 1.5rem;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        margin-left: 15px;
+        color: #444;
+        transition: 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: #0b5999;
+      }
+
+      .copyright {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          align-items: center;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 10px;
+        }
+        .hero h2 {
+          font-size: 2.2rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 20px;
+        }
+        .art-card h4 {
+          font-size: 1.3rem;
+        }
+        .art-card p {
+          font-size: 0.9rem;
+        }
+        .submit-section h3 {
+          font-size: 1.8rem;
+        }
+        .submit-section p {
+          font-size: 0.95rem;
+        }
+        .submit-btn {
+          padding: 10px 22px;
+          font-size: 0.95rem;
+        }
+        .footer-inner {
+          flex-direction: column;
+          gap: 8px;
+          text-align: center;
+        }
+
+        .footer-links {
+          margin: 10px 0;
+        }
+
+        .footer-links a {
+          margin: 0 8px;
+          display: inline-block;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 80px 15px;
+        }
+        .hero h2 {
+          font-size: 1.8rem;
+        }
+        .hero p {
+          font-size: 0.9rem;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+        .art-card img {
+          height: 180px;
+        }
+        .art-card h4 {
+          font-size: 1.2rem;
+        }
+        .art-card p {
+          font-size: 0.85rem;
+        }
+        .submit-section {
+          padding: 60px 10px;
+        }
+        .submit-section h3 {
+          font-size: 1.5rem;
+        }
+        .submit-section p {
+          font-size: 0.85rem;
+        }
+        .submit-btn {
+          padding: 8px 18px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          width: 85%;
+        }
+        .hero h2 {
+          font-size: 3.5rem;
+        }
+        .hero p {
+          font-size: 1.2rem;
+        }
+        .art-card h4 {
+          font-size: 1.7rem;
+        }
+        .art-card p {
+          font-size: 1rem;
+        }
+        .submit-section h3 {
+          font-size: 2.2rem;
+        }
+        .submit-section p {
+          font-size: 1.1rem;
+        }
+        .submit-btn {
+          font-size: 1rem;
+          padding: 12px 30px;
+        }
+      }
+
+      @media (min-width: 1600px) {
+        .container {
+          width: 75%;
+        }
+        .hero h2 {
+          font-size: 4rem;
+        }
+        .hero p {
+          font-size: 1.3rem;
+        }
+        .art-card h4 {
+          font-size: 1.9rem;
+        }
+        .art-card p {
+          font-size: 1.1rem;
+        }
+        .submit-section h3 {
+          font-size: 2.5rem;
+        }
+        .submit-section p {
+          font-size: 1.2rem;
+        }
+        .submit-btn {
+          font-size: 1.1rem;
+          padding: 14px 35px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 15px 10px;
+          gap: 10px;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .nav-links a {
+          margin: 8px 0;
+          font-size: 0.95rem;
+        }
+
+        .brand {
+          font-size: 1.6rem;
+        }
+      }
+      .brand a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand"><a href="index.html">PixelForge</a></div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="news.html">News</a>
+          <a href="community.html" class="active">Community</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h2>🎨 Fan Art Gallery</h2>
+        <p>
+          Discover incredible art from gamers and creators inspired by worlds we
+          love.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">Featured Artworks</h3>
+      <div class="gallery-grid">
+        <div class="art-card">
+          <img src="fanart2.jpg" alt="Valorant Fan Art" />
+          <div class="content">
+            <h4>“Phoenix Rising”</h4>
+            <p>
+              By <strong>@SketchNinja</strong> — a blazing Valorant tribute.
+            </p>
+          </div>
+        </div>
+
+        <div class="art-card">
+          <img src="fanart3.jpg" alt="Zelda Artwork" />
+          <div class="content">
+            <h4>“Echoes of Hyrule”</h4>
+            <p>
+              By <strong>@HyruleArtist</strong> — capturing the calm of the
+              wild.
+            </p>
+          </div>
+        </div>
+
+        <div class="art-card">
+          <img src="fanart4.jpg" alt="Cyberpunk Art" />
+          <div class="content">
+            <h4>“Neon Dreams”</h4>
+            <p>
+              By <strong>@PixelNomad</strong> — a futuristic masterpiece in
+              neon.
+            </p>
+          </div>
+        </div>
+
+        <div class="art-card">
+          <img src="fanart5.jpg" alt="Minecraft Build" />
+          <div class="content">
+            <h4>“Creeper Kingdom”</h4>
+            <p>
+              By <strong>@BlockSmith</strong> — a royal build from pure
+              imagination.
+            </p>
+          </div>
+        </div>
+
+        <div class="art-card">
+          <img src="fanart6.jpg" alt="God of War Illustration" />
+          <div class="content">
+            <h4>“Blades of Fate”</h4>
+            <p>By <strong>@KratosDesigns</strong> — myth meets mastery.</p>
+          </div>
+        </div>
+
+        <div class="art-card">
+          <img src="fanart7.jpg" alt="Fortnite Collage" />
+          <div class="content">
+            <h4>“Victory Royale”</h4>
+            <p>By <strong>@EpicCanvas</strong> — vibrant chaos in motion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="submit-section">
+      <h3>Got Art to Share?</h3>
+      <p>
+        Join the PixelForge community of creators. Submit your art and get
+        featured on our gallery wall.
+      </p>
+      <a href="submit-art.html" class="submit-btn">Submit Your Art →</a>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="footer-brand">PixelForge</p>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

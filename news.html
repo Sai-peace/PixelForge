@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaming-News | PixelForge</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Teko", sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+        color: #222;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        background: #fcfcfc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        margin-left: 20px;
+        color: #444;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #0b5999;
+      }
+      .news-hero {
+        text-align: center;
+        padding: 80px 20px;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("EA-Sports-FC-24-Review-1-1.webp") center/cover no-repeat;
+        color: #fff;
+      }
+      .news-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      .news-hero p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 50px 10%;
+        background: #f8f9fb;
+      }
+      .news-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+      .news-card:hover {
+        transform: translateY(-8px);
+      }
+      .news-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      .news-card h3 {
+        font-size: 1.3rem;
+        margin: 15px;
+        color: #222;
+      }
+      .news-card p {
+        font-size: 0.95rem;
+        color: #555;
+        margin: 0 15px 10px;
+      }
+      .read-more {
+        display: inline-block;
+        margin: 10px 15px 20px;
+        color: #0077ff;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .read-more:hover {
+        text-decoration: underline;
+      }
+      .footer {
+        background: #ffffff;
+        padding: 25px 0;
+        margin-top: 40px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-brand {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        font-size: 1.5rem;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        margin-left: 15px;
+        color: #444;
+        transition: 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: #0b5999;
+      }
+
+      .copyright {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* 📱 Mobile (up to 480px) */
+      @media (max-width: 480px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .news-hero {
+          padding: 60px 15px;
+        }
+
+        .news-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .news-hero p {
+          font-size: 0.95rem;
+        }
+
+        .news-grid {
+          padding: 30px 5%;
+          gap: 1.5rem;
+        }
+
+        .news-card h3 {
+          font-size: 1.1rem;
+        }
+
+        .news-card p {
+          font-size: 0.9rem;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+          gap: 8px;
+        }
+
+        .footer-links {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 768px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .brand {
+          margin-bottom: 10px;
+        }
+
+        .news-hero {
+          padding: 70px 20px;
+        }
+
+        .news-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .news-grid {
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          padding: 40px 8%;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+          gap: 12px;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .news-hero h1 {
+          font-size: 2.3rem;
+        }
+
+        .news-grid {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 40px 10%;
+        }
+
+        .footer-inner {
+          flex-wrap: wrap;
+          justify-content: space-around;
+          gap: 10px;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .news-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .brand a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand"><a href="index.html">PixelForge</a></div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="news.html" class="active">News</a>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="news-hero">
+      <h1>🎮 Explore Our Game Library</h1>
+      <p>
+        Stay ahead of the game — your source for the latest in gaming, esports,
+        and entertainment.
+      </p>
+    </section>
+
+    <section class="news-grid">
+      <div class="news-card">
+        <img src="gta vi.jpg" alt="GTA VI Release Date" />
+        <h3>GTA VI Set for 2025 Release</h3>
+        <p>
+          Rockstar finally confirms the next chapter in the GTA series — new
+          cities, characters, and chaos await.
+        </p>
+        <a href="news1.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="fortnite news.jpg" alt="Fortnite New Chapter" />
+        <h3>Fortnite: New Chapter Brings Massive Overhaul</h3>
+        <p>
+          Epic Games shakes things up with new maps, mechanics, and crossover
+          events for fans worldwide.
+        </p>
+        <a href="news2.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="esports.jpg" alt="Esports Championship" />
+        <h3>Esports World Championship 2025 Announced</h3>
+        <p>
+          Top teams from around the globe prepare for the biggest esports
+          showdown yet.
+        </p>
+        <a href="news3.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="nintendo.jpg" alt="Nintendo Direct" />
+        <h3>Nintendo Direct Unveils New Zelda & Mario Titles</h3>
+        <p>
+          Fans rejoice as Nintendo teases major releases and exciting updates
+          for 2025.
+        </p>
+        <a href="news4.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="ps5.jpg" alt="PlayStation Expo" />
+        <h3>PlayStation Showcase Highlights Stunning Exclusives</h3>
+        <p>
+          Sony reveals gameplay from its highly anticipated PS5 exclusives with
+          jaw-dropping visuals.
+        </p>
+        <a href="news5.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="xbox.jpg" alt="Xbox Cloud Gaming" />
+        <h3>Xbox Expands Cloud Gaming to More Regions</h3>
+        <p>
+          Microsoft continues its global push, bringing Xbox Cloud to millions
+          of new gamers.
+        </p>
+        <a href="news6.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="cyberpunk news.jpg" alt="Cyberpunk Expansion" />
+        <h3>Cyberpunk 2077 Expansion "Phantom Liberty" Breaks Records</h3>
+        <p>
+          CD Projekt’s latest DLC surpasses expectations with new storylines and
+          gameplay depth.
+        </p>
+        <a href="news7.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="valorant.jpg" alt="Valorant New Agent" />
+        <h3>Valorant Introduces New Agent and Map</h3>
+        <p>
+          Riot’s tactical shooter evolves again with a mysterious agent and
+          urban-themed battlefield.
+        </p>
+        <a href="news8.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="minecraft.jpg" alt="Minecraft Update" />
+        <h3>Minecraft 1.21 Update Adds New Biomes and Creatures</h3>
+        <p>
+          Mojang’s timeless hit continues to grow with fresh content and
+          fan-favorite surprises.
+        </p>
+        <a href="news9.html" class="read-more">Read More →</a>
+      </div>
+
+      <div class="news-card">
+        <img src="efootball.jpg" alt="eFootball 2025 Update" />
+        <h3>eFootball 2025 Introduces Real-Time Manager Mode</h3>
+        <p>
+          Konami shakes up the football sim scene with a brand-new Manager Mode,
+          letting players control clubs beyond the pitch.
+        </p>
+        <a href="news10.html" class="read-more">Read More →</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="footer-brand">PixelForge</p>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

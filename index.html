@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PixelForge — Where Games Are Crafted</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Teko", sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+        color: #222;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        background: #fcfcfc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        margin-left: 20px;
+        color: #444;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #0b5999;
+      }
+
+      .hero {
+        padding: 60px 0;
+        background-color: #ebebec;
+      }
+
+      .hero-inner {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero-text h1 {
+        font-family: "Teko", sans-serif;
+        font-size: 3rem;
+        margin-bottom: 10px;
+        color: #222;
+      }
+
+      .hero-text h1 span {
+        color: #0b5999;
+      }
+
+      .hero-text p {
+        color: #555;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 15px;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 12px 22px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .btn.primary {
+        background: #0b5999;
+        color: #fff;
+      }
+
+      .btn.primary:hover {
+        background: #0884ea;
+      }
+
+      .btn.secondary {
+        border: 2px solid #00a6d4;
+        color: #0094d4;
+      }
+
+      .btn.secondary:hover {
+        background: #009bd4;
+        color: #fff;
+      }
+
+      .hero-img img {
+        width: 500px;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .featured {
+        padding: 60px 0;
+      }
+
+      .featured h2 {
+        font-family: "Teko", sans-serif;
+        font-size: 3rem;
+        color: #0b5999;
+        margin-bottom: 25px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 25px;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        padding: 18px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .card h3 {
+        font-family: "Teko", sans-serif;
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+        color: #222;
+      }
+
+      .card p {
+        color: #555;
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+
+      .game-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 0.9rem;
+        color: #333;
+      }
+
+      .game-info i {
+        color: #068cfa;
+        margin-right: 6px;
+      }
+
+      .footer {
+        background: #ffffff;
+        padding: 25px 0;
+        margin-top: 40px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-brand {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        font-size: 1.5rem;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        margin-left: 15px;
+        color: #444;
+        transition: 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: #0b5999;
+      }
+
+      .copyright {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          align-items: center;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 10px;
+        }
+        .hero-inner {
+          flex-direction: column-reverse;
+          text-align: center;
+        }
+        .hero-img img {
+          width: 100%;
+          height: 50vh;
+          object-fit: cover;
+        }
+        .hero-buttons {
+          margin-left: 30%;
+        }
+        .container h2 {
+          text-align: center;
+        }
+        .footer-inner {
+          flex-direction: column;
+          gap: 8px;
+          text-align: center;
+        }
+
+        .footer-links {
+          margin: 10px 0;
+        }
+
+        .footer-links a {
+          margin: 0 8px;
+          display: inline-block;
+        }
+      }
+
+      .brand a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand"><a href="index.html">PixelForge</a></div>
+        <nav class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="games.html">Games</a>
+          <a href="news.html">News</a>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Welcome to <span>PixelForge</span></h1>
+          <p>
+            Explore the hottest titles, discover hidden gems, and stay updated
+            on everything gaming — all in one forge.
+          </p>
+          <div class="hero-buttons">
+            <a href="games.html" class="btn primary">Explore Games</a>
+            <a href="news.html" class="btn secondary">Latest News</a>
+          </div>
+        </div>
+        <div class="hero-img">
+          <img src="game-hero.avif" alt="Gaming setup" />
+        </div>
+      </div>
+    </section>
+
+    <section class="featured container">
+      <h2>Featured Games</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="fortnite.jpg" alt="Fortnite" />
+          <h3>Fortnite</h3>
+          <p>
+            Jump into the Battle Royale phenomenon blending creativity and
+            combat.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-gun"></i> Shooter</span>
+            <span><i class="fa-brands fa-windows"></i> PC</span>
+            <span><i class="fa-solid fa-star"></i> 4.7</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="genshin impact.jpeg" alt="Genshin Impact" />
+          <h3>Genshin Impact</h3>
+          <p>
+            Embark on an open-world adventure filled with magic, story, and
+            action.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-wand-magic-sparkles"></i> RPG</span>
+            <span><i class="fa-brands fa-apple"></i> iOS</span>
+            <span><i class="fa-solid fa-star"></i> 4.8</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="valorant.jpg" alt="Valorant" />
+          <h3>Valorant</h3>
+          <p>
+            Tactical hero shooter that defines competitive precision and
+            strategy.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-crosshairs"></i> FPS</span>
+            <span><i class="fa-brands fa-windows"></i> PC</span>
+            <span><i class="fa-solid fa-star"></i> 4.6</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="apex legends.webp" alt="Apex Legends" />
+          <h3>Apex Legends</h3>
+          <p>Outplay your opponents in high-octane, squad-based battles.</p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-bullseye"></i> Battle Royale</span>
+            <span><i class="fa-brands fa-playstation"></i> PS5</span>
+            <span><i class="fa-solid fa-star"></i> 4.7</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="minecraft.jpg" alt="Minecraft" />
+          <h3>Minecraft</h3>
+          <p>
+            Craft, survive, and explore in an endless world limited only by
+            imagination.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-cube"></i> Sandbox</span>
+            <span><i class="fa-brands fa-xbox"></i> Xbox</span>
+            <span><i class="fa-solid fa-star"></i> 4.9</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="elden ring.jpg" alt="Elden Ring" />
+          <h3>Elden Ring</h3>
+          <p>
+            Enter a vast, dark fantasy realm crafted by Hidetaka Miyazaki and
+            George R. R. Martin.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-dragon"></i> Action RPG</span>
+            <span><i class="fa-brands fa-playstation"></i> PS5</span>
+            <span><i class="fa-solid fa-star"></i> 4.9</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="god of war.jpg" alt="God of War" />
+          <h3>God of War</h3>
+          <p>
+            Join Kratos and Atreus on an emotional journey across mythic realms.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-axe"></i> Adventure</span>
+            <span><i class="fa-brands fa-playstation"></i> PS5</span>
+            <span><i class="fa-solid fa-star"></i> 4.8</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="spiderman2.jpg" alt="Spider-Man 2" />
+          <h3>Spider-Man 2</h3>
+          <p>Web-sling across New York as Peter Parker and Miles Morales.</p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-spider"></i> Action</span>
+            <span><i class="fa-brands fa-playstation"></i> PS5</span>
+            <span><i class="fa-solid fa-star"></i> 4.8</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="EA-Sports-FC-24-Review-1-1.webp" alt="EA Sports FC 24" />
+          <h3>EA Sports FC 24</h3>
+          <p>
+            Experience next-level football realism with enhanced graphics and
+            AI.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-futbol"></i> Sports</span>
+            <span><i class="fa-brands fa-windows"></i> PC</span>
+            <span><i class="fa-solid fa-star"></i> 4.5</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="free fire.jpg" alt="Free Fire" />
+          <h3>Free Fire</h3>
+          <p>Fast-paced battle royale designed for mobile gamers worldwide.</p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-bullseye"></i> Battle Royale</span>
+            <span><i class="fa-brands fa-android"></i> Android</span>
+            <span><i class="fa-solid fa-star"></i> 4.4</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="Call_of_Duty_Modern_Warfare_(2019)_cover.jpg"
+            alt="Call of Duty: Modern Warfare III"
+          />
+          <h3>Call of Duty: Modern Warfare III</h3>
+          <p>
+            Join intense warfare and cinematic missions in the latest COD
+            installment.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-gun"></i> Shooter</span>
+            <span><i class="fa-brands fa-xbox"></i> Xbox</span>
+            <span><i class="fa-solid fa-star"></i> 4.7</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="nfs.jpg" alt="Need for Speed Unbound" />
+          <h3>Need for Speed: Unbound</h3>
+          <p>
+            Race through the streets with style, speed, and stunning visuals.
+          </p>
+          <div class="game-info">
+            <span><i class="fa-solid fa-car"></i> Racing</span>
+            <span><i class="fa-brands fa-windows"></i> PC</span>
+            <span><i class="fa-solid fa-star"></i> 4.6</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="footer-brand">PixelForge</p>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

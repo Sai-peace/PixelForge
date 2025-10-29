@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events | PixelForge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Teko:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Teko", sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #222;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      background: #fcfcfc;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      color: #0b5999;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: #444;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #0b5999;
+    }
+
+    .hero {
+      background: url("event-banner.jpg") center/cover no-repeat;
+      position: relative;
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero h2 {
+      font-family: "Teko", sans-serif;
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 70px 10%;
+    }
+
+    .light {
+      background-color: #f5f5f5;
+    }
+
+    h3.section-title {
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      color: #0b5999;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h4 {
+      font-family: "Teko", sans-serif;
+      color: #0b5999;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .card-content p {
+      margin: 5px 0;
+    }
+
+    .register-btn {
+      display: inline-block;
+      background-color: #0b5999;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .register-btn:hover {
+      background-color: #009bd4;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 0 auto;
+      padding-left: 40px;
+      max-width: 800px;
+    }
+
+    .timeline-event {
+      position: relative;
+      margin-left: 60px;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-event h4 {
+      font-family: "Teko", sans-serif;
+      color: #0b5999;
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
+
+    .timeline-event p {
+      margin: 3px 0;
+    }
+
+    .timeline-event img {
+      height: auto;
+      width: 450px;
+    }
+
+    .footer {
+      background: #ffffff;
+      padding: 25px 0;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-brand {
+      font-family: "Teko", sans-serif;
+      color: #0b5999;
+      font-size: 1.5rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      margin-left: 15px;
+      color: #444;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #0b5999;
+    }
+
+    .copyright {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero h2 {
+        font-size: 2.6rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-grid {
+        gap: 20px;
+      }
+
+      .card-content h4 {
+        font-size: 1.4rem;
+      }
+
+      .card-content p {
+        font-size: 0.95rem;
+      }
+
+      .register-btn {
+        padding: 8px 18px;
+        font-size: 0.95rem;
+      }
+
+      .timeline-event img {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        align-items: center;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .card-content h4 {
+        font-size: 1.3rem;
+      }
+
+      .card-content p {
+        font-size: 0.88rem;
+      }
+
+      .register-btn {
+        padding: 7px 16px;
+        font-size: 0.9rem;
+      }
+
+      .timeline-event {
+        margin-left: 0;
+        padding: 15px;
+      }
+
+      .timeline-event img {
+        width: 100%;
+        height: auto;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .footer-links {
+        margin: 10px 0;
+      }
+
+      .footer-links a {
+        margin: 0 8px;
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 90px 15px;
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 0.85rem;
+      }
+
+      .card-content h4 {
+        font-size: 1.2rem;
+      }
+
+      .card-content p {
+        font-size: 0.82rem;
+      }
+
+      .register-btn {
+        padding: 6px 14px;
+        font-size: 0.85rem;
+      }
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand"><a href="index.html">PixelForge</a></div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="games.html">Games</a>
+        <a href="news.html">News</a>
+        <a href="community.html">Community</a>
+        <a href="events.html" class="active">Events</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Upcoming PixelForge Events</h2>
+      <p>
+        Stay updated on tournaments, expos, and creator meetups. Join the fun
+        and connect with the community!
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="section-title">🎮 Featured Events</h3>
+    <div class="section-grid">
+      <div class="card">
+        <img src="event1.webp" alt="PixelForge Esports Cup" />
+        <div class="card-content">
+          <h4>PixelForge Esports Cup</h4>
+          <p><strong>Date:</strong> Dec 12-14, 2025</p>
+          <p><strong>Location:</strong> Online & LAN Finals in New York</p>
+          <p>
+            Our annual tournament featuring Apex, COD, and FIFA battles. Open
+            to all skill levels.
+          </p>
+          <a href="#" class="register-btn">Register Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="event2.jpg" alt="Fan Expo 2026" />
+        <div class="card-content">
+          <h4>Fan Expo 2026</h4>
+          <p><strong>Date:</strong> Jan 20-22, 2026</p>
+          <p><strong>Location:</strong> Los Angeles Convention Center</p>
+          <p>
+            A celebration of art, gaming, cosplay, and everything in between.
+          </p>
+          <a href="#" class="register-btn">Get Tickets</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="event3.jpg" alt="Creators Meet" />
+        <div class="card-content">
+          <h4>Creators Meet</h4>
+          <p><strong>Date:</strong> Nov 15, 2025</p>
+          <p><strong>Location:</strong> Virtual & Streaming</p>
+          <p>
+            Connect with top content creators and game designers worldwide,
+            network, and share ideas.
+          </p>
+          <a href="#" class="register-btn">Join Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="event4.jpg" alt="Indie Game Jam" />
+        <div class="card-content">
+          <h4>Indie Game Jam</h4>
+          <p><strong>Date:</strong> Mar 10-12, 2026</p>
+          <p><strong>Location:</strong> Online</p>
+          <p>
+            Participate in a 48-hour game development challenge with fellow
+            indie developers.
+          </p>
+          <a href="#" class="register-btn">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <h3 class="section-title">⏳ Past Events</h3>
+    <div class="timeline">
+      <div class="timeline-event">
+        <img src="event5.jpg" alt="pixelforge esports cup" />
+        <h4>PixelForge Esports Cup 2024</h4>
+        <p><strong>Date:</strong> Dec 2024</p>
+        <p><strong>Location:</strong> Online & LAN Finals in Chicago</p>
+        <p>
+          Competitive gaming event featuring Apex Legends and FIFA with top
+          players from around the globe.
+        </p>
+      </div>
+      <div class="timeline-event">
+        <img src="event6.webp" alt="fan expo" />
+        <h4>Fan Expo 2024</h4>
+        <p><strong>Date:</strong> Jan 2024</p>
+        <p><strong>Location:</strong> Los Angeles Convention Center</p>
+        <p>
+          A fan-favorite expo celebrating cosplay, game demos, and indie art.
+        </p>
+      </div>
+      <div class="timeline-event">
+        <img src="event7.jpg" alt="creators meet" />
+        <h4>Creators Meet 2024</h4>
+        <p><strong>Date:</strong> Feb 2024</p>
+        <p><strong>Location:</strong> Virtual</p>
+        <p>
+          Online networking session connecting aspiring game creators and
+          designers worldwide.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">PixelForge</p>
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

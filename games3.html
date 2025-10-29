@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelForge — Where Games Are Crafted</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Teko", sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #222;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      background: #fcfcfc;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      color: #0b5999;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: #444;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #0b5999;
+    }
+
+    .games-section {
+      padding: 60px 0;
+      background: #ebebec;
+    }
+
+    .games-section h2 {
+      font-family: "Teko", sans-serif;
+      font-size: 3rem;
+      color: #0b5999;
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .games-section p {
+      text-align: center;
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .game-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .details-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 15px;
+      background: #0b5999;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-bottom: 15px;
+    }
+
+    .details-btn:hover {
+      background: #0884ea;
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+
+    .game-card h3 {
+      font-family: "Teko", sans-serif;
+      font-size: 1.6rem;
+      color: #222;
+      margin: 12px 0 5px;
+    }
+
+    .game-card p {
+      color: #555;
+      font-size: 0.95rem;
+      margin: 0 15px 15px;
+    }
+
+    .game-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 18px;
+    }
+
+    .game-info i {
+      color: #0b5999;
+      margin-right: 6px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .pagination a {
+      text-decoration: none;
+      color: #0b5999;
+      border: 2px solid #0b5999;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .pagination a:hover,
+    .pagination a.active {
+      background: #0b5999;
+      color: #fff;
+    }
+
+    .footer {
+      background: #ffffff;
+      padding: 25px 0;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-brand {
+      font-family: "Teko", sans-serif;
+      color: #0b5999;
+      font-size: 1.5rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      margin-left: 15px;
+      color: #444;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #0b5999;
+    }
+
+    .copyright {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .games-section h2 {
+        font-size: 2.2rem;
+      }
+
+      .game-card img {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .games-section h2 {
+        font-size: 2.5rem;
+      }
+
+      .games-section p {
+        font-size: 1rem;
+      }
+
+      .games-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .game-card img {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        margin-left: 10px;
+      }
+
+      .games-section h2 {
+        font-size: 2.2rem;
+      }
+
+      .games-section p {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+      }
+
+      .games-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+      }
+
+      .game-card img {
+        height: 140px;
+      }
+
+      .details-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .footer-links {
+        margin: 10px 0;
+      }
+
+      .footer-links a {
+        margin: 0 8px;
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .games-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .games-section p {
+        font-size: 0.85rem;
+        margin-bottom: 30px;
+      }
+
+      .games-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .game-card img {
+        height: 130px;
+      }
+
+      .game-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .game-card p,
+      .game-info {
+        font-size: 0.8rem;
+      }
+
+      .details-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+      }
+
+      .pagination a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+      }
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand"><a href="index.html">PixelForge</a></div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="games.html" class="active">Games</a>
+        <a href="news.html">News</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="games-section">
+    <h2>🎮 Explore Our Game Library</h2>
+    <p>Discover even more gaming greatness — Page 3 of our collection</p>
+    <div class="games-grid">
+      <div class="game-card">
+        <img src="the last of us.jpg" alt="The Last of Us Part I" />
+        <h3>The Last of Us Part I</h3>
+        <p>
+          Survive in a world overrun by infection in this story of love and
+          loss.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-virus"></i> Adventure</span>
+          <span><i class="fas fa-desktop"></i> PlayStation/PC</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="elden ring shadow.jpg" alt="Elden Ring: Shadow of the Erdtree" />
+        <h3>Elden Ring: Shadow of the Erdtree</h3>
+        <p>
+          Journey into new lands and face the unknown in the epic DLC
+          expansion.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-dragon"></i> RPG</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="street fighter 6.jpg" alt="Street Fighter 6" />
+        <h3>Street Fighter 6</h3>
+        <p>
+          Challenge fighters across the globe in this stylish next-gen
+          brawler.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-fist-raised"></i> Fighting</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="spiderman miles morales.jpg" alt="Spider-Man: Miles Morales" />
+        <h3>Spider-Man: Miles Morales</h3>
+        <p>
+          Swing through New York as Miles and protect your city from chaos.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-spider"></i> Action</span>
+          <span><i class="fas fa-desktop"></i> PlayStation/PC</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="hellblade 2.png" alt="Hellblade II: Senua’s Saga" />
+        <h3>Hellblade II: Senua’s Saga</h3>
+        <p>
+          Experience haunting beauty and psychological depth in this action
+          adventure.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-skull"></i> Adventure</span>
+          <span><i class="fas fa-desktop"></i> Xbox/PC</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="for honor.jpg" alt="For Honor" />
+        <h3>For Honor</h3>
+        <p>
+          Master medieval combat as knights, samurai, or vikings in epic
+          battles.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-shield-alt"></i> Action</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="fortnite2.jpg" alt="Fortnite Chapter 5" />
+        <h3>Fortnite Chapter 5</h3>
+        <p>
+          Build, battle, and survive in the ever-evolving world of Fortnite.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-crosshairs"></i> Shooter</span>
+          <span><i class="fas fa-mobile-alt"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="battlefield 2042.jpg" alt="Battlefield 2042" />
+        <h3>Battlefield 2042</h3>
+        <p>Massive modern warfare with next-level destruction and realism.</p>
+        <div class="game-info">
+          <span><i class="fas fa-bullseye"></i> Shooter</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="horizon forbidden west.jpg" alt="Horizon Forbidden West" />
+        <h3>Horizon Forbidden West</h3>
+        <p>
+          Join Aloy as she ventures across vast lands filled with robotic
+          beasts.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-paw"></i> Adventure</span>
+          <span><i class="fas fa-desktop"></i> PlayStation</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="genshin 2.jpg" alt="Genshin Impact 2" />
+        <h3>Genshin Impact 2</h3>
+        <p>
+          Return to Teyvat with new characters, quests, and breathtaking open
+          worlds.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-wind"></i> RPG</span>
+          <span><i class="fas fa-mobile-alt"></i> Mobile/PC</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="sea of thieves.jpg" alt="Sea of Thieves" />
+        <h3>Sea of Thieves</h3>
+        <p>
+          Sail the seas, find treasure, and fight pirates in this online
+          adventure.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-anchor"></i> Adventure</span>
+          <span><i class="fas fa-desktop"></i> Xbox/PC</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="palworld.jpg" alt="Palworld" />
+        <h3>Palworld</h3>
+        <p>
+          Tame creatures, build, and survive in this wild blend of cute and
+          chaotic.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-dragon"></i> Adventure</span>
+          <span><i class="fas fa-desktop"></i> PC</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="pagination">
+    <a href="games2.html" class="disabled">&laquo; Prev</a>
+    <a href="games.html">1</a>
+    <a href="games2.html">2</a>
+    <a href="games3.html" class="active">3</a>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">PixelForge</p>
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | PixelForge</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Teko:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Teko", sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+        color: #222;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        background: #fcfcfc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        margin-left: 20px;
+        color: #444;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #0b5999;
+      }
+
+      .hero {
+        background: url("contact.jpg") center/cover no-repeat;
+        position: relative;
+        color: #fff;
+        text-align: center;
+        padding: 120px 20px;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        margin: auto;
+      }
+      .hero h2 {
+        font-family: "Teko", sans-serif;
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 70px 10%;
+      }
+
+      .everything {
+        background-color: #e4e4e4;
+      }
+
+      h3.section-title {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+      .contact-info,
+      .contact-form {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .contact-info h4,
+      .contact-form h4 {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+      }
+      .contact-info p {
+        margin: 8px 0;
+      }
+      .contact-info i {
+        color: #0b5999;
+        margin-right: 10px;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      .submit-btn {
+        display: inline-block;
+        background-color: #0b5999;
+        color: #fff;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .submit-btn:hover {
+        background-color: #009bd4;
+      }
+
+      .footer {
+        background: #fffdfd;
+        padding: 25px 0;
+        margin-top: 40px;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .footer-brand {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        font-size: 1.5rem;
+      }
+      .footer-links a {
+        text-decoration: none;
+        margin-left: 15px;
+        color: #444;
+        transition: 0.3s;
+      }
+      .footer-links a:hover {
+        color: #0b5999;
+      }
+      .copyright {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero h2 {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .hero h2 {
+          font-size: 2.6rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        .contact-grid {
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          align-items: center;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 10px;
+        }
+        .hero h2 {
+          font-size: 2.2rem;
+        }
+        .hero p {
+          font-size: 0.95rem;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .contact-info h4,
+        .contact-form h4 {
+          font-size: 1.5rem;
+        }
+        .contact-info p,
+        .contact-form input,
+        .contact-form textarea,
+        .submit-btn {
+          font-size: 0.95rem;
+        }
+        .submit-btn {
+          padding: 10px 20px;
+        }
+        .footer-inner {
+          flex-direction: column;
+          gap: 8px;
+          text-align: center;
+        }
+
+        .footer-links {
+          margin: 10px 0;
+        }
+
+        .footer-links a {
+          margin: 0 8px;
+          display: inline-block;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 90px 15px;
+        }
+        .hero h2 {
+          font-size: 1.8rem;
+        }
+        .hero p {
+          font-size: 0.9rem;
+        }
+        .contact-info h4,
+        .contact-form h4 {
+          font-size: 1.3rem;
+        }
+        .contact-info p,
+        .contact-form input,
+        .contact-form textarea,
+        .submit-btn {
+          font-size: 0.9rem;
+        }
+        .submit-btn {
+          padding: 8px 18px;
+        }
+      }
+      .brand a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand"><a href="index.html">PixelForge</a></div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="news.html">News</a>
+          <a href="community.html">Community</a>
+          <a href="events.html">Events</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Contact PixelForge</h2>
+        <p>
+          Have questions or suggestions? We'd love to hear from you. Reach out
+          and connect with our community team!
+        </p>
+      </div>
+    </section>
+
+    <section class="everything">
+      <h3 class="section-title">📬 Get in Touch</h3>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h4>Contact Information</h4>
+          <p><i class="fas fa-envelope"></i> support@pixelforge.com</p>
+          <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 123 Pixel Lane, Gaming City,
+            USA
+          </p>
+          <p><i class="fab fa-twitter"></i> <a href="#">@PixelForge</a></p>
+          <p>
+            <i class="fab fa-discord"></i> <a href="#">PixelForge Community</a>
+          </p>
+        </div>
+
+        <div class="contact-form">
+          <h4>Send a Message</h4>
+          <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <input type="text" name="subject" placeholder="Subject" required />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="footer-brand">PixelForge</p>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

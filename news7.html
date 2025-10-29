@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Cyberpunk 2077: Phantom Liberty Breaks Records | PixelForge News
+    </title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      body {
+        font-family: "Teko", sans-serif;
+        margin: 0;
+        background-color: #f3f4f7;
+        color: #222;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        background: #fcfcfc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        margin-left: 20px;
+        color: #444;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #0b5999;
+      }
+
+      .news-hero {
+        height: 60vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("cyberpunk news.jpg") center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+      }
+
+      .news-hero h1 {
+        font-family: "Teko", sans-serif;
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .news-hero p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .news-content {
+        max-width: 900px;
+        margin: 60px auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        line-height: 1.8;
+      }
+
+      .news-content h2 {
+        color: #f9ca24;
+        font-family: "Teko", sans-serif;
+        margin-bottom: 15px;
+      }
+
+      .news-content p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin: 30px auto 10px;
+        padding: 12px 25px;
+        background-color: #f9ca24;
+        color: #222;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .back-link:hover {
+        background-color: #f5ba08;
+      }
+
+      .footer {
+        background: #ffffff;
+        padding: 25px 0;
+        margin-top: 40px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-brand {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        font-size: 1.5rem;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        margin-left: 15px;
+        color: #444;
+        transition: 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: #0b5999;
+      }
+
+      .copyright {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 480px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .news-hero {
+          height: auto;
+          padding: 80px 20px;
+        }
+
+        .news-hero h1 {
+          font-size: 1.9rem;
+          line-height: 1.2;
+        }
+
+        .news-hero p {
+          font-size: 1rem;
+        }
+
+        .news-content {
+          margin: 30px 15px;
+          padding: 25px 20px;
+        }
+
+        .news-content h2 {
+          font-size: 1.4rem;
+        }
+
+        .news-content p {
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        .back-link {
+          display: block;
+          text-align: center;
+          width: 100%;
+          font-size: 1rem;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+          gap: 8px;
+        }
+
+        .footer-links {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 768px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .brand {
+          margin-bottom: 10px;
+        }
+
+        .news-hero {
+          height: 50vh;
+          padding: 60px 20px;
+        }
+
+        .news-hero h1 {
+          font-size: 2.3rem;
+        }
+
+        .news-hero p {
+          font-size: 1.05rem;
+        }
+
+        .news-content {
+          margin: 40px 30px;
+          padding: 30px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+          gap: 12px;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .news-hero h1 {
+          font-size: 2.6rem;
+        }
+
+        .news-content {
+          margin: 50px auto;
+          padding: 35px;
+        }
+
+        .footer-inner {
+          flex-wrap: wrap;
+          justify-content: space-around;
+          gap: 10px;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .news-hero h1 {
+          font-size: 3rem;
+        }
+
+        .news-content {
+          max-width: 900px;
+          padding: 40px;
+        }
+      }
+      .brand a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand"><a href="index.html">PixelForge</a></div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="news.html" class="active">News</a>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="news-hero">
+      <h1>Cyberpunk 2077: Phantom Liberty Breaks Records</h1>
+      <p>
+        CD Projekt Red redeems itself with a masterclass in narrative and
+        design.
+      </p>
+    </section>
+
+    <section class="news-content">
+      <h2>A Triumphant Redemption Story</h2>
+      <p>
+        After a rocky launch in 2020, few expected
+        <strong>Cyberpunk 2077</strong> to make such a massive comeback. Yet,
+        with the 2025 release of its expansion <strong>Phantom Liberty</strong>,
+        CD Projekt Red has achieved exactly that — earning critical acclaim,
+        record-breaking sales, and renewed respect from gamers worldwide.
+      </p>
+
+      <p>
+        Set in the shadowy district of <strong>Dogtown</strong>, Phantom Liberty
+        introduces new characters, moral dilemmas, and espionage-driven
+        storytelling that push the boundaries of immersive world-building. The
+        return of <strong>Keanu Reeves</strong> as Johnny Silverhand, alongside
+        new faces like <strong>Idris Elba’s Solomon Reed</strong>, gave the
+        expansion cinematic depth rarely seen in modern games.
+      </p>
+
+      <p>
+        The expansion’s launch shattered records, peaking at over
+        <strong>5 million players</strong> within the first week — a testament
+        to how far the game’s reputation has evolved. Performance improvements
+        and rebuilt police AI systems finally allowed players to experience
+        Night City as it was originally envisioned.
+      </p>
+
+      <p>
+        Fans and critics have praised CD Projekt Red’s dedication, calling
+        Phantom Liberty “<em>a masterclass in redemption storytelling</em>.” The
+        DLC not only expands gameplay but also reshapes the main story’s
+        conclusion, adding emotional resonance and new choices that alter the
+        fate of both V and Night City.
+      </p>
+
+      <p>
+        With the success of Phantom Liberty, CD Projekt Red confirmed that the
+        upcoming sequel, codenamed <strong>Project Orion</strong>, is already in
+        early development. If this expansion is any indication, the future of
+        Cyberpunk looks brighter — and more neon-lit — than ever.
+      </p>
+
+      <a href="news.html" class="back-link">← Back to News Hub</a>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="footer-brand">PixelForge</p>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

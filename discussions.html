@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discussions | PixelForge</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Teko:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Teko", sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+        color: #222;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        background: #fcfcfc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        margin-left: 20px;
+        color: #444;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #0b5999;
+      }
+
+      .hero {
+        background: url("discussions.jpg") center/cover no-repeat;
+        position: relative;
+        color: #fff;
+        text-align: center;
+        padding: 110px 20px;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      .hero h2 {
+        font-family: "Teko", sans-serif;
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 70px 10%;
+      }
+
+      .light {
+        background-color: #f5f5f5;
+      }
+
+      h3.section-title {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .discussion-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .discussion-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s;
+      }
+
+      .discussion-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .discussion-card h4 {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+      }
+
+      .discussion-card p {
+        font-size: 0.95rem;
+        color: #444;
+      }
+
+      .view-thread {
+        margin-top: 15px;
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        background: #0b5999;
+        padding: 8px 18px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .view-thread:hover {
+        background: #009bd4;
+      }
+
+      .footer {
+        background: #ffffff;
+        padding: 25px 0;
+        margin-top: 40px;
+      }
+
+      .footer-inner {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-brand {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        font-size: 1.5rem;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        margin-left: 15px;
+        color: #444;
+        transition: 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: #0b5999;
+      }
+
+      .copyright {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 1024px) {
+        .hero h2 {
+          font-size: 2.6rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        .discussion-grid {
+          gap: 20px;
+        }
+        .discussion-card h4 {
+          font-size: 1.4rem;
+        }
+        .discussion-card p {
+          font-size: 0.9rem;
+        }
+        .view-thread {
+          padding: 7px 16px;
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          align-items: center;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 10px;
+        }
+        .hero h2 {
+          font-size: 2.2rem;
+        }
+        .hero p {
+          font-size: 0.95rem;
+        }
+        .discussion-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+        .discussion-card h4 {
+          font-size: 1.3rem;
+        }
+        .discussion-card p {
+          font-size: 0.88rem;
+        }
+        .view-thread {
+          padding: 6px 14px;
+          font-size: 0.9rem;
+        }
+        .footer-inner {
+          flex-direction: column;
+          gap: 8px;
+          text-align: center;
+        }
+
+        .footer-links {
+          margin: 10px 0;
+        }
+
+        .footer-links a {
+          margin: 0 8px;
+          display: inline-block;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 90px 15px;
+        }
+        .hero h2 {
+          font-size: 1.8rem;
+        }
+        .hero p {
+          font-size: 0.85rem;
+        }
+        .discussion-card h4 {
+          font-size: 1.2rem;
+        }
+        .discussion-card p {
+          font-size: 0.82rem;
+        }
+        .view-thread {
+          padding: 5px 12px;
+          font-size: 0.85rem;
+        }
+      }
+      .brand a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand"><a href="index.html">PixelForge</a></div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="news.html">News</a>
+          <a href="community.html" class="active">Community</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Join the Conversation</h2>
+        <p>
+          Discuss the latest gaming trends, share your thoughts, and connect
+          with players around the world.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">🔥 Trending Topics</h3>
+      <div class="discussion-grid">
+        <div class="discussion-card">
+          <h4>GTA VI Map Leaks & Theories</h4>
+          <p>
+            Fans are dissecting every frame of the new GTA VI trailer — what
+            hidden details have you spotted?
+          </p>
+          <a href="discussion-gta.html" class="view-thread">View Thread →</a>
+        </div>
+        <div class="discussion-card">
+          <h4>Best Indie Games of 2025</h4>
+          <p>
+            From Hollow Knight: Silksong to Hades II — which indie gems blew
+            your mind this year?
+          </p>
+          <a href="discussion-indie.html" class="view-thread">View Thread →</a>
+        </div>
+        <div class="discussion-card">
+          <h4>Esports Rivalries — Valorant vs CS2</h4>
+          <p>
+            The competitive scene is heating up! Which shooter do you think
+            dominates the pro circuit?
+          </p>
+          <a href="discussion-esports.html" class="view-thread"
+            >View Thread →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="light">
+      <h3 class="section-title">🧠 Game Design Debates</h3>
+      <div class="discussion-grid">
+        <div class="discussion-card">
+          <h4>Open World Fatigue — Too Big or Just Right?</h4>
+          <p>
+            Are sprawling open worlds enhancing gameplay, or diluting the fun?
+            Let's talk about pacing and exploration.
+          </p>
+          <a href="discussion-openworld.html" class="view-thread"
+            >View Thread →</a
+          >
+        </div>
+        <div class="discussion-card">
+          <h4>AI in Gaming — Innovation or Threat?</h4>
+          <p>
+            With procedural storytelling and adaptive enemies, AI is changing
+            the game. Is it for better or worse?
+          </p>
+          <a href="discussion-ai.html" class="view-thread">View Thread →</a>
+        </div>
+        <div class="discussion-card">
+          <h4>Remakes vs Originals</h4>
+          <p>
+            Do modern remakes honor the classics or strip away nostalgia? Drop
+            your thoughts!
+          </p>
+          <a href="discussion-remakes.html" class="view-thread"
+            >View Thread →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-brand">PixelForge</p>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

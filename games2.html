@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelForge — Where Games Are Crafted</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Teko", sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #222;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      background: #fcfcfc;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-family: "Teko", sans-serif;
+      font-size: 2rem;
+      color: #0b5999;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: #444;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #0b5999;
+    }
+
+    .games-section {
+      padding: 60px 0;
+      background: #ebebec;
+    }
+
+    .games-section h2 {
+      font-family: "Teko", sans-serif;
+      font-size: 3rem;
+      color: #0b5999;
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .games-section p {
+      text-align: center;
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .game-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+
+    .game-card h3 {
+      font-family: "Teko", sans-serif;
+      font-size: 1.6rem;
+      color: #222;
+      margin: 12px 0 5px;
+    }
+
+    .game-card p {
+      color: #555;
+      font-size: 0.95rem;
+      margin: 0 15px 15px;
+    }
+
+    .details-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #0b5999;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-bottom: 15px;
+    }
+
+    .details-btn:hover {
+      background: #0884ea;
+    }
+
+    .game-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 18px;
+    }
+
+    .game-info i {
+      color: #0b5999;
+      margin-right: 6px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .pagination a {
+      text-decoration: none;
+      color: #0b5999;
+      border: 2px solid #0b5999;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .pagination a:hover,
+    .pagination a.active {
+      background: #0b5999;
+      color: #fff;
+    }
+
+    .footer {
+      background: #ffffff;
+      padding: 25px 0;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-brand {
+      font-family: "Teko", sans-serif;
+      color: #0b5999;
+      font-size: 1.5rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      margin-left: 15px;
+      color: #444;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #0b5999;
+    }
+
+    .copyright {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .games-section h2 {
+        font-size: 2.2rem;
+      }
+
+      .game-card img {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .games-section h2 {
+        font-size: 2.5rem;
+      }
+
+      .games-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .game-card img {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        margin-left: 10px;
+      }
+
+      .games-section h2 {
+        font-size: 2.2rem;
+      }
+
+      .games-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+      }
+
+      .game-card img {
+        height: 140px;
+      }
+
+      .details-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .footer-links {
+        margin: 10px 0;
+      }
+
+      .footer-links a {
+        margin: 0 8px;
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .games-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .games-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .game-card img {
+        height: 130px;
+      }
+
+      .game-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .game-card p,
+      .game-info {
+        font-size: 0.8rem;
+      }
+
+      .details-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+      }
+
+      .pagination a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+      }
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand"><a href="index.html">PixelForge</a></div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="games.html" class="active">Games</a>
+        <a href="news.html">News</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="games-section">
+    <h2>🎮 Explore Our Game Library</h2>
+    <p>Dive deeper into the world of gaming — Page 2 of our collection</p>
+    </header>
+
+    <div class="games-grid">
+      <div class="game-card">
+        <img src="starfield.jpg" alt="Starfield" />
+        <h3>Starfield</h3>
+        <p>
+          Embark on an interstellar adventure through galaxies and mysterious
+          planets.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-rocket"></i> Sci-Fi</span>
+          <span><i class="fas fa-desktop"></i> PC/Xbox</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="alan wake 2.jpg" alt="Alan Wake 2" />
+        <h3>Alan Wake 2</h3>
+        <p>
+          A psychological horror story where reality blurs with darkness and
+          nightmares.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-moon"></i> Horror</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="forza horizon 5.jpg" alt="Forza Horizon 5" />
+        <h3>Forza Horizon 5</h3>
+        <p>
+          Race across breathtaking open worlds in the ultimate driving
+          experience.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-car"></i> Racing</span>
+          <span><i class="fas fa-desktop"></i> Xbox/PC</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="tekken8.jpg" alt="Tekken 8" />
+        <h3>Tekken 8</h3>
+        <p>
+          Battle your rivals in the newest chapter of the world’s fiercest
+          fighting saga.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-fist-raised"></i> Fighting</span>
+          <span><i class="fas fa-gamepad"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="warzone.jpg" alt="Call of Duty: Warzone" />
+        <h3>Call of Duty: Warzone</h3>
+        <p>
+          Drop into the battlefield, strategize, and fight your way to victory
+          in Warzone.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-crosshairs"></i> Shooter</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="league of legends.jpg" alt="League of Legends" />
+        <h3>League of Legends</h3>
+        <p>
+          Outplay your opponents in this global MOBA phenomenon of strategy and
+          skill.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-chess-knight"></i> Strategy</span>
+          <span><i class="fas fa-desktop"></i> PC</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="mortal kombat 1.jpg" alt="Mortal Kombat 1" />
+        <h3>Mortal Kombat 1</h3>
+        <p>
+          Witness brutal combat and cinematic storytelling in the reborn MK
+          universe.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-fire"></i> Fighting</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="baldurs gate 3.jpg" alt="Baldur’s Gate 3" />
+        <h3>Baldur’s Gate 3</h3>
+        <p>
+          Experience a deep fantasy world full of choices, magic, and rich
+          storytelling.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-hat-wizard"></i> RPG</span>
+          <span><i class="fas fa-desktop"></i> PC/Console</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="ghost of tsushima.jpg" alt="Ghost of Tsushima" />
+        <h3>Ghost of Tsushima</h3>
+        <p>
+          Become a samurai and fight to free Japan in a stunning open-world
+          journey.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-dagger"></i> Action</span>
+          <span><i class="fas fa-desktop"></i> PlayStation</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="diablo 4.jpg" alt="Diablo IV" />
+        <h3>Diablo IV</h3>
+        <p>
+          Battle through the depths of hell in this dark, action-packed
+          dungeon-crawler.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-skull"></i> RPG</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="rainbow six siege.jpg" alt="Rainbow Six Siege" />
+        <h3>Rainbow Six Siege</h3>
+        <p>
+          Tactical team-based shooting where strategy and precision rule the
+          day.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-shield-alt"></i> Tactical</span>
+          <span><i class="fas fa-desktop"></i> Multi-Platform</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+
+      <div class="game-card">
+        <img src="gran turismo 7.jpg" alt="Gran Turismo 7" />
+        <h3>Gran Turismo 7</h3>
+        <p>
+          Push the limits of realism and speed in this ultimate driving
+          simulator.
+        </p>
+        <div class="game-info">
+          <span><i class="fas fa-flag-checkered"></i> Racing</span>
+          <span><i class="fas fa-gamepad"></i> PlayStation</span>
+        </div>
+        <a href="#" class="details-btn">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="pagination">
+    <a href="games.html" class="disabled">&laquo; Prev</a>
+    <a href="games.html">1</a>
+    <a href="games2.html" class="active">2</a>
+    <a href="games3.html">3</a>
+    <a href="games3.html">Next &raquo;</a>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">PixelForge</p>
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

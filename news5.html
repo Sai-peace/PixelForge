@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      PlayStation Showcase Highlights Stunning Exclusives | PixelForge News
+    </title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      body {
+        font-family: "Teko", sans-serif;
+        margin: 0;
+        background-color: #f7f7f7;
+        color: #222;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        background: #fcfcfc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-family: "Teko", sans-serif;
+        font-size: 2rem;
+        color: #0b5999;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        margin-left: 20px;
+        color: #444;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #0b5999;
+      }
+
+      .news-hero {
+        height: 60vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("ps5.jpg") center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+      }
+
+      .news-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .news-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .news-content {
+        max-width: 900px;
+        margin: 60px auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        line-height: 1.8;
+      }
+
+      .news-content h2 {
+        color: #0040ff;
+        margin-bottom: 15px;
+      }
+
+      .news-content p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin: 30px auto 10px;
+        padding: 12px 25px;
+        background-color: #0040ff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        transition: background 0.3s ease;
+      }
+
+      .back-link:hover {
+        background-color: #002b99;
+      }
+
+      .footer {
+        background: #ffffff;
+        padding: 25px 0;
+        margin-top: 40px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-brand {
+        font-family: "Teko", sans-serif;
+        color: #0b5999;
+        font-size: 1.5rem;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        margin-left: 15px;
+        color: #444;
+        transition: 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: #0b5999;
+      }
+
+      .copyright {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 480px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .news-hero {
+          height: auto;
+          padding: 80px 20px;
+        }
+
+        .news-hero h1 {
+          font-size: 1.9rem;
+          line-height: 1.2;
+        }
+
+        .news-hero p {
+          font-size: 1rem;
+        }
+
+        .news-content {
+          margin: 30px 15px;
+          padding: 25px 20px;
+        }
+
+        .news-content h2 {
+          font-size: 1.4rem;
+        }
+
+        .news-content p {
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        .back-link {
+          display: block;
+          text-align: center;
+          width: 100%;
+          font-size: 1rem;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+          gap: 8px;
+        }
+
+        .footer-links {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 768px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .brand {
+          margin-bottom: 10px;
+        }
+
+        .news-hero {
+          height: 50vh;
+          padding: 60px 20px;
+        }
+
+        .news-hero h1 {
+          font-size: 2.3rem;
+        }
+
+        .news-hero p {
+          font-size: 1.05rem;
+        }
+
+        .news-content {
+          margin: 40px 30px;
+          padding: 30px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+          gap: 12px;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .news-hero h1 {
+          font-size: 2.6rem;
+        }
+
+        .news-content {
+          margin: 50px auto;
+          padding: 35px;
+        }
+
+        .footer-inner {
+          flex-wrap: wrap;
+          justify-content: space-around;
+          gap: 10px;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .news-hero h1 {
+          font-size: 3rem;
+        }
+
+        .news-content {
+          max-width: 900px;
+          padding: 40px;
+        }
+      }
+      .brand a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand"><a href="index.html">PixelForge</a></div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="news.html" class="active">News</a>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="news-hero">
+      <h1>PlayStation Showcase Highlights Stunning Exclusives</h1>
+      <p>Sony stuns fans with breathtaking new titles and next-gen visuals.</p>
+    </section>
+
+    <section class="news-content">
+      <h2>The Next Era of PlayStation Excellence</h2>
+      <p>
+        The <strong>PlayStation Showcase 2025</strong> reaffirmed Sony’s
+        dominance in the world of console gaming. With a dazzling display of
+        cinematic storytelling and real-time performance, the event unveiled a
+        lineup of exclusives that blend artistry with technical brilliance. From
+        gritty action to emotional adventures, PlayStation Studios continues to
+        set the bar for immersive entertainment.
+      </p>
+
+      <p>
+        The highlight of the show was
+        <strong>Ghost of Tsushima: Shadows of the Wind</strong>, a sequel
+        expanding the open world of feudal Japan with deeper combat mechanics
+        and breathtaking environmental details. The trailer revealed seamless
+        transitions between gameplay and cutscenes, powered by Sony’s latest PS5
+        Pro hardware upgrade.
+      </p>
+
+      <p>
+        <strong>Marvel’s Spider-Man 3</strong> also made waves with a teaser
+        featuring both Miles Morales and Peter Parker navigating a darker,
+        symbiote-infused New York. The developers teased a co-op mode and
+        emotional story arc exploring loyalty and sacrifice — a move that had
+        fans buzzing across social media.
+      </p>
+
+      <p>
+        Meanwhile, new IPs like <strong>Eclipse Protocol</strong> and
+        <strong>Haven’s Nexus</strong> showcased the range of Sony’s studios —
+        from futuristic espionage thrillers to stylized sci-fi exploration
+        games. Each title underscored the company’s commitment to diverse
+        storytelling and cinematic production values.
+      </p>
+
+      <p>
+        As the presentation wrapped, Sony announced the launch of
+        <strong>PlayStation Access+</strong>, a premium subscription offering
+        day-one access to first-party titles and enhanced cloud streaming. The
+        showcase closed with the message “Play Has No Limits,” and judging by
+        the audience’s reaction — that statement still rings true in 2025.
+      </p>
+
+      <a href="news.html" class="back-link">← Back to News Hub</a>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="footer-brand">PixelForge</p>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="copyright">© 2025 PixelForge. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
